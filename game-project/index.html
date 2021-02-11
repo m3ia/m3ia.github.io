@@ -14,9 +14,11 @@
 </head>
 
 <body>
+  <!--Header-->
 <div class = "grid-container">
   <h1 id="myHeading">Guess That Number!</h1>
 
+  <!--Instruction-->
   <main role="main">
   <div class="row">
     <div class="col">
@@ -24,18 +26,22 @@
     </div>
   </div>
 
+  <!-- Area for Submitting Guesses -->
   <div class="row">
     <div class="col">
   <label for="guessField"> Enter your guess: </label><input type="text" id="guessField" class="guessField">
   <input type="submit" value="Submit" class="guessSubmit" id="submit">
-    </div>
-  </div>
+
   
+  <!-- Number of Guesses -->
   <p id="guess_counter"></p>
     </div>
   </div>
 
+  <!-- Previous Guesses -->
   <!-- <p id="track_prev"></p> -->
+
+
 </main>
   <script src="index.js"></script>
 </body>
