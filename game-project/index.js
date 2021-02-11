@@ -7,11 +7,14 @@ let guess = 0;
 
 /* sand box*/
 
-/* area to try and track previous guesses */
-// const trackPrev = document.gotElementById('track_prev');
-// let prev = "";
-
-// document.gotElementById("track_prev").innerHTML = "Previous guesses: " + prev;
+/* area to try and track previous guesses - mandy's sugg */
+// let arrayOfLi = document.getElementsByTagName("LI");
+// ​
+// let arrayOfLiContents = [];
+// for ( let element of arrayOfLi ) {
+//     console.log(element.innerText);
+// 	arrayOfLiContents.push(element.innerText);
+// }
 
 
 
