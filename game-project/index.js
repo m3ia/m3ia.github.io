@@ -4,15 +4,21 @@ const guessField = document.getElementById('guessField');
 const guess_counter = document.getElementById('guess_counter'); 
 let guess = 0;
 
+
+/* sand box*/
+
+/* area to try and track previous guesses */
 // const trackPrev = document.gotElementById('track_prev');
 // let prev = "";
 
 // document.gotElementById("track_prev").innerHTML = "Previous guesses: " + prev;
 
 
-// random value generated 
+
+/* random value generator */
 var randNum=  Math.floor(Math.random() * 10) + 1;
 
+/* reset function */
 function resetGame() {
   randNum=  Math.floor(Math.random() * 10) + 1;
   guess = 0; 
@@ -20,7 +26,7 @@ function resetGame() {
  
 }
 
-
+/* game mechanics */ 
 myButton.addEventListener('click', () => {
   var x = guessField.value;
 
