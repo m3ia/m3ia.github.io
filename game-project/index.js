@@ -3,13 +3,11 @@ const myButton = document.getElementById('submit');
 const guessField = document.getElementById('guessField');
 const guess_counter = document.getElementById('guess_counter'); 
 let guess = 0;
-
+// const track_prev = document.getElementsById('track_prev');
+let prev_guesses = [];
 
 /* sand box*/
-
 /* area to try and track previous guesses - mandy's sugg */
-// let arrayOfLi = document.getElementsByTagName("LI");
-// ​
 // let arrayOfLiContents = [];
 // for ( let element of arrayOfLi ) {
 //     console.log(element.innerText);
@@ -25,7 +23,9 @@ var randNum=  Math.floor(Math.random() * 10) + 1;
 function resetGame() {
   randNum=  Math.floor(Math.random() * 10) + 1;
   guess = 0; 
-  document.getElementById("guess_counter").innerHTML = "Number of guesses: " + guess;
+  guess_counter.innerHTML = "Number of guesses: " + guess;
+  prev_guesses = [];
+  track_prev.innerHTML = "Previous Guesses: " + prev_guesses;
  
 }
 
@@ -36,18 +36,22 @@ myButton.addEventListener('click', () => {
   if (x==randNum) {
     alert("Yay! You got it!");
     guess++;
-    document.getElementById("guess_counter").innerHTML = "Number of guesses: " + guess;
+    guess_counter.innerHTML = "Number of guesses: " + guess;
     resetGame();
 
   }
   else if (x> randNum) {
     guess++;
-    document.getElementById("guess_counter").innerHTML = "Number of guesses: " + guess;
+    guess_counter.innerHTML = "Number of guesses: " + guess;
+    prev_guesses.push(x);
+    track_prev.innerHTML = "Previous Guesses: " + prev_guesses;
     alert("Hm. Maybe try a smaller number?");
 
   } else if (x < randNum) {
     guess++;
-    document.getElementById("guess_counter").innerHTML = "Number of guesses: " + guess;
+    guess_counter.innerHTML = "Number of guesses: " + guess;
+    prev_guesses.push(x);
+    track_prev.innerHTML = "Previous Guesses: " + prev_guesses;
     alert("Perhaps a greater number?");
 
   } else {
