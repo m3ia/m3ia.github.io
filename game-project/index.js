@@ -1,5 +1,5 @@
 const myHeading = document.getElementById('myHeading');
-const myButton = document.getElementById('submit');
+const submit = document.getElementById('submit');
 const guessField = document.getElementById('guessField');
 const guess_counter = document.getElementById('guess_counter'); 
 let guess = 0;
@@ -30,7 +30,7 @@ function resetGame() {
 }
 
 /* game mechanics */ 
-myButton.addEventListener('click', () => {
+submit.addEventListener('click', () => {
   var x = guessField.value;
 
   if (x==randNum) {
