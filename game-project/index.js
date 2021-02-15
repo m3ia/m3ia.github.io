@@ -5,6 +5,9 @@ const guess_counter = document.getElementById('guess_counter');
 let guess = 0;
 // const track_prev = document.getElementsById('track_prev');
 let prev_guesses = [];
+const easyButton = document.getElementById('easyButton');
+const medButton = document.getElementById('medButton');
+const hardButton = document.getElementById('hardButton');
 
 /* sand box*/
 /* area to try and track previous guesses - mandy's sugg */
