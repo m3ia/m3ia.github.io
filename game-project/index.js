@@ -38,7 +38,7 @@ myButton.addEventListener('click', () => {
     guess++;
     guess_counter.innerHTML = "Number of guesses: " + guess;
     prev_guesses.push(x);
-    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();;
+    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();
     resetGame();
 
   }
@@ -46,14 +46,14 @@ myButton.addEventListener('click', () => {
     guess++;
     guess_counter.innerHTML = "Number of guesses: " + guess;
     prev_guesses.push(x);
-    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();;
+    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();
     alert("Hm. Maybe try a smaller number?");
 
   } else if (x < randNum) {
     guess++;
     guess_counter.innerHTML = "Number of guesses: " + guess;
     prev_guesses.push(x);
-    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();;
+    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();
     alert("Perhaps a greater number?");
 
   } else {
