@@ -38,30 +38,32 @@ function displayToggle () {
 
 /* set difficulty */
 easyButton.addEventListener('click', ()=> {
-  resetGame();
   randNumRange = [1, 10];
   diff = 10;
   diffName = "Easy";
   currDiff.innerHTML = `Current Difficulty: ${diffName}`;
   displayToggle();
+  resetGame();
+
 });
 
 medButton.addEventListener('click', () => {
   randNumRange = [1, 100];
   diff = 100;
   diffName = "Medium";
-  resetGame();
   currDiff.innerHTML = `Current Difficulty: ${diffName}`;
   displayToggle();
+  resetGame();
 });
 
 hardButton.addEventListener('click', () => {
   randNumRange = [1,1000];
   diff = 1000;
   diffName = "Hard";
-  resetGame();
   currDiff.innerHTML = `Current Difficulty: ${diffName}`;
   displayToggle();
+  resetGame();
+
 });
 
 /* reset function */
