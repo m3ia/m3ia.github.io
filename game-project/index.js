@@ -8,6 +8,7 @@ let guess = 0;
 let prev_guesses = [];
 
 // vars for setting difficulty
+const diffButtons = document.getElementById('difficultyButtons');
 const easyButton = document.getElementById('easyButton');
 const medButton = document.getElementById('medButton');
 const hardButton = document.getElementById('hardButton');
@@ -23,6 +24,17 @@ let randNum = Math.floor(Math.random() * diff) +1;
 let score = 0;
 const userScore = document.getElementById('userScore');
 
+// toggle function 
+function displayToggle () {
+  if (difficultyButtons.style.display === "none") {
+    difficultyButtons.style.display = "block";
+    game.style.display = "none";
+  } else {
+    difficultyButtons.style.display = "none";
+    game.style.display = "block";
+  }
+
+}
 
 /* set difficulty */
 easyButton.addEventListener('click', ()=> {
@@ -31,6 +43,7 @@ easyButton.addEventListener('click', ()=> {
   diff = 10;
   diffName = "Easy";
   currDiff.innerHTML = `Current Difficulty: ${diffName}`;
+  displayToggle();
 });
 
 medButton.addEventListener('click', () => {
@@ -39,6 +52,7 @@ medButton.addEventListener('click', () => {
   diffName = "Medium";
   resetGame();
   currDiff.innerHTML = `Current Difficulty: ${diffName}`;
+  displayToggle();
 });
 
 hardButton.addEventListener('click', () => {
@@ -47,6 +61,7 @@ hardButton.addEventListener('click', () => {
   diffName = "Hard";
   resetGame();
   currDiff.innerHTML = `Current Difficulty: ${diffName}`;
+  displayToggle();
 });
 
 /* reset function */
@@ -67,6 +82,7 @@ submit.addEventListener('click', () => {
     guess++;
     prev_guesses.push(x);
     score++;
+    displayToggle();
     resetGame();
 
   } 

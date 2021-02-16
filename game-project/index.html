@@ -19,7 +19,10 @@
     <h1 id="myHeading">Guess That Number!</h1>
 
     <!--Difficulty-->
+    <div id = "difficultyButtons" align="center">
+      Choose your difficulty:
     <button id= "easyButton" class="button">Easy (1-10)</button>  <button id= "medButton" class="button">Medium (1-100)</button>  <button id= "hardButton" class="button">Hard (1-1000)</button>
+    </div>
 
     <!--Instruction-->
     <main role="main" id="game">
@@ -38,8 +41,6 @@
           <!-- Previous Guesses -->
           <p id="track_prev"></p>
 
-      <!-- User Score -->
-          <p id="userScore"></p>
 
       <!-- Difficulty Settings -->
       <p id="currDiff"></p>
@@ -47,6 +48,8 @@
         </div>
 
     </main>
+    <!-- User Score -->
+    <p id="userScore"></p>
     <script src="index.js"></script>
 </body>
 
