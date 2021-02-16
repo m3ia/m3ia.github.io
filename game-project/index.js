@@ -69,7 +69,11 @@ submit.addEventListener('click', () => {
     score++;
     resetGame();
 
-  } else if (x > randNum && x < randNumRange[1]+1) {
+  } 
+  else if (prev_guesses.includes(x)===true) {
+    alert(`You've tried that one already!`);
+  }
+  else if (x > randNum && x < randNumRange[1]+1) {
     guess++;
     prev_guesses.push(x);
     alert(`Hm. Maybe try a smaller number?`);
@@ -79,9 +83,7 @@ submit.addEventListener('click', () => {
     prev_guesses.push(x);
     alert(`Perhaps a greater number?`);
 
-  } else if (prev_guesses.includes(x)) {
-    alert(`You've tried that one already!`);
-  }
+  } 
     else {
     alert( `Please enter a number between 1 and ${randNumRange[1]}.`);
   }
