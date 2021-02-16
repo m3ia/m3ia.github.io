@@ -11,6 +11,8 @@ let prev_guesses = [];
 const easyButton = document.getElementById('easyButton');
 const medButton = document.getElementById('medButton');
 const hardButton = document.getElementById('hardButton');
+const currDiff = document.getElementById('currDiff');
+let diffName = "Easy";
 
 // vars for random number, range
 let randNumRange = [1, 10];
@@ -24,21 +26,27 @@ const userScore = document.getElementById('userScore');
 
 /* set difficulty */
 easyButton.addEventListener('click', ()=> {
+  resetGame();
   randNumRange = [1, 10];
   diff = 10;
-  resetGame();
+  diffName = "Easy";
+  currDiff.innerHTML = `Current Difficulty: ${diffName}`;
 });
 
 medButton.addEventListener('click', () => {
   randNumRange = [1, 100];
   diff = 100;
+  diffName = "Medium";
   resetGame();
+  currDiff.innerHTML = `Current Difficulty: ${diffName}`;
 });
 
 hardButton.addEventListener('click', () => {
   randNumRange = [1,1000];
   diff = 1000;
+  diffName = "Hard";
   resetGame();
+  currDiff.innerHTML = `Current Difficulty: ${diffName}`;
 });
 
 /* reset function */
@@ -47,6 +55,7 @@ function resetGame() {
   guessField.focus();
   guess = 0;
   prev_guesses = [];
+  randNum = Math.floor(Math.random() * diff) +1;
 }
 
 /* user guess function */
@@ -70,7 +79,10 @@ submit.addEventListener('click', () => {
     prev_guesses.push(x);
     alert(`Perhaps a greater number?`);
 
-  } else {
+  } else if (prev_guesses.includes(x)) {
+    alert(`You've tried that one already!`);
+  }
+    else {
     alert( `Please enter a number between 1 and ${randNumRange[1]}.`);
   }
   guessField.value = "";
@@ -79,5 +91,6 @@ submit.addEventListener('click', () => {
   guess_counter.innerHTML = `Number of guesses: ${guess}`;
   track_prev.innerHTML = `Previous Guesses: ${prev_guesses}`;
   userScore.innerHTML = `User Score: ${score}`;
+  currDiff.innerHTML = `Current Difficulty: ${diffName}`;
 });
 
