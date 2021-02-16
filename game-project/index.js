@@ -1,18 +1,26 @@
 const myHeading = document.getElementById('myHeading');
+
+// guessing vars 
 const submit = document.getElementById('submit');
 const guessField = document.getElementById('guessField');
 const guess_counter = document.getElementById('guess_counter');
 let guess = 0;
-
-// const track_prev = document.getElementsById('track_prev');
 let prev_guesses = [];
+
+// vars for setting difficulty
 const easyButton = document.getElementById('easyButton');
 const medButton = document.getElementById('medButton');
 const hardButton = document.getElementById('hardButton');
 
+// vars for random number, range
 let randNumRange = [1, 10];
 let diff = 0;
 let randNum = Math.floor(Math.random() * diff) +1;
+
+// vars for user score
+let score = 0;
+const userScore = document.getElementById('userScore');
+
 
 /* set difficulty */
 easyButton.addEventListener('click', ()=> {
@@ -35,12 +43,10 @@ hardButton.addEventListener('click', () => {
 
 /* reset function */
 function resetGame() {
-  randNum = Math.floor(Math.random() * diff) + 1;
+  guessField.value = "";
+  guessField.focus();
   guess = 0;
-  guess_counter.innerHTML = "Number of guesses: " + guess;
   prev_guesses = [];
-  track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();
-
 }
 
 /* user guess function */
@@ -48,26 +54,21 @@ submit.addEventListener('click', () => {
   var x = guessField.value;
 
   if (x == randNum) {
-    alert("Yay! You got it!");
+    alert(`Yay! You got it!`);
     guess++;
-    guess_counter.innerHTML = "Number of guesses: " + guess;
     prev_guesses.push(x);
-    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();
+    score++;
     resetGame();
 
-  } else if (x > randNum && x < randNumRange[1]) {
+  } else if (x > randNum && x < randNumRange[1]+1) {
     guess++;
-    guess_counter.innerHTML = "Number of guesses: " + guess;
     prev_guesses.push(x);
-    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();
-    alert("Hm. Maybe try a smaller number?");
+    alert(`Hm. Maybe try a smaller number?`);
 
-  } else if (x < randNum && x > randNumRange[0]) {
+  } else if (x < randNum && x > 0) {
     guess++;
-    guess_counter.innerHTML = "Number of guesses: " + guess;
     prev_guesses.push(x);
-    track_prev.innerHTML = "Previous Guesses: " + prev_guesses.toString();
-    alert("Perhaps a greater number?");
+    alert(`Perhaps a greater number?`);
 
   } else {
     alert( `Please enter a number between 1 and ${randNumRange[1]}.`);
@@ -75,5 +76,8 @@ submit.addEventListener('click', () => {
   guessField.value = "";
   guessField.focus();
 
+  guess_counter.innerHTML = `Number of guesses: ${guess}`;
+  track_prev.innerHTML = `Previous Guesses: ${prev_guesses}`;
+  userScore.innerHTML = `User Score: ${score}`;
 });
 
